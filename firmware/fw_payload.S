@@ -99,3 +99,14 @@ payload_bin:
 #else
 	.incbin	FW_PAYLOAD_PATH
 #endif
+
+	.section .initram, "awx", %progbits
+	.align 4
+	.globl initram_bin
+initram_bin:
+#ifndef FW_INITRAM_PATH
+	wfi
+	j	initram_bin
+#else
+	.incbin	FW_INITRAM_PATH
+#endif
