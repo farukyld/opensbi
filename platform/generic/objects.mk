@@ -36,8 +36,10 @@ FW_PAYLOAD=y
 ifeq ($(PLATFORM_RISCV_XLEN), 32)
   # This needs to be 4MB aligned for 32-bit system
   FW_PAYLOAD_OFFSET=0x400000
+  FW_INITRAM_OFFSET=0x7FD7BE00
 else
   # This needs to be 2MB aligned for 64-bit system
   FW_PAYLOAD_OFFSET=0x200000
+  FW_INITRAM_OFFSET=0x7FD7BE00
 endif
 FW_PAYLOAD_FDT_OFFSET=$(FW_JUMP_FDT_OFFSET)

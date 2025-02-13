@@ -28,5 +28,23 @@ SECTIONS
 		PROVIDE(_payload_end = .);
 	}
 
+
+
+#ifdef FW_INITRAM_OFFSET
+	. = FW_TEXT_START + FW_INITRAM_OFFSET;
+#warning FW_INITRAM_OFFSET
+#else
+	. = ALIGN(FW_INITRAM_ALIGN);
+#endif
+
+	.initram :
+	{
+		PROVIDE(_initram_start = .);
+		KEEP(*(.initram))
+		. = ALIGN(8);
+		PROVIDE(_initram_end = .);
+	}
+
+
 	PROVIDE(_fw_reloc_end = .);
 }
