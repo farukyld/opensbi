@@ -489,6 +489,7 @@ compile_as = $(CMD_PREFIX)mkdir -p `dirname $(1)`; \
 compile_elf = $(CMD_PREFIX)mkdir -p `dirname $(1)`; \
 	     echo " ELF       $(subst $(build_dir)/,,$(1))"; \
 	     $(CC) $(CFLAGS) $(3) $(ELFFLAGS) -Wl,-T$(2) -o $(1)
+ 	    # echo "\033[33m $(CC) $(CFLAGS) $(3) $(ELFFLAGS) -Wl,-T$(2) -o $(1) \033[0m ";
 compile_ar = $(CMD_PREFIX)mkdir -p `dirname $(1)`; \
 	     echo " AR        $(subst $(build_dir)/,,$(1))"; \
 	     $(AR) $(ARFLAGS) $(1) $(2)

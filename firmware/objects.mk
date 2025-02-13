@@ -49,6 +49,8 @@ else
 FW_PAYLOAD_PATH_FINAL=$(platform_build_dir)/firmware/payloads/test.bin
 endif
 firmware-genflags-$(FW_PAYLOAD) += -DFW_PAYLOAD_PATH=\"$(FW_PAYLOAD_PATH_FINAL)\"
+firmware-genflags-$(FW_PAYLOAD) += -DFW_INITRAM_PATH=\"$(FW_INITRAM_PATH)\"
+# $(info "firmware-genflags-$(FW_PAYLOAD): $(firmware-genflags-$(FW_PAYLOAD))")
 ifdef FW_PAYLOAD_OFFSET
 firmware-genflags-$(FW_PAYLOAD) += -DFW_PAYLOAD_OFFSET=$(FW_PAYLOAD_OFFSET)
 endif
