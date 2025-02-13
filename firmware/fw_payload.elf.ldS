@@ -40,7 +40,7 @@ SECTIONS
 	.initram :
 	{
 		PROVIDE(_initram_start = .);
-		*(.initram)
+		KEEP(*(.initram))
 		. = ALIGN(8);
 		PROVIDE(_initram_end = .);
 	}
